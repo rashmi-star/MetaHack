@@ -1,4 +1,4 @@
-# Instagram Clone with Llama AI Integration
+# Instagram with Llama AI Integration
 
 A modern Instagram clone built with React Native and Expo that includes a Llama AI chatbot feature.
 
