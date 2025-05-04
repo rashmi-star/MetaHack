@@ -11,6 +11,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import PostDetailScreen from '../screens/PostDetailScreen';
 import ChatbotScreen from '../screens/ChatbotScreen';
 import TestApiScreen from '../screens/TestApiScreen';
+import StoryScreen from '../screens/StoryScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -37,6 +38,11 @@ const HomeStack = () => {
         name="TestApi" 
         component={TestApiScreen} 
         options={{ title: 'API Test' }}
+      />
+      <Stack.Screen 
+        name="Story" 
+        component={StoryScreen} 
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );

@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Post from '../components/Post';
+import Stories from '../components/Stories';
 import { MOCK_POSTS } from '../data/mockData';
 
 const HomeScreen = ({ navigation }) => {
@@ -46,6 +47,9 @@ const HomeScreen = ({ navigation }) => {
           Triple-tap on any image to analyze it with Llama AI
         </Text>
       </View>
+      
+      {/* Stories Component */}
+      <Stories navigation={navigation} />
       
       <FlatList
         data={posts}

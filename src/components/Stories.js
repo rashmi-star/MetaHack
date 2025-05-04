@@ -75,9 +75,16 @@ const STORIES = [
 
 const Stories = ({ navigation }) => {
   const openStory = (story) => {
-    // In a real app, we would navigate to a story screen
-    // For now, just show an alert
-    alert(`Viewing ${story.username}'s story`);
+    // Navigate to the Story screen with the story ID
+    if (story.id !== 'your-story' && story.hasStory) {
+      navigation.navigate('Story', { storyUserId: story.id });
+    } else if (story.id === 'your-story') {
+      // For "Your Story", you might want to add functionality to create a story
+      alert('Add to your story');
+    } else {
+      // For users without stories
+      alert(`${story.username} has no stories to view`);
+    }
   };
 
   const renderStoryItem = ({ item }) => {

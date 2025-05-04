@@ -44,9 +44,11 @@ const MOCK_STORY = {
 };
 
 const StoryScreen = ({ route, navigation }) => {
-  // In a real app, we would get the story from the route params
-  // const { userId } = route.params;
-  const storyData = MOCK_STORY;
+  // Get the storyUserId from route params
+  const { storyUserId } = route.params || {};
+  
+  // Find the story data for the specific user ID, or use mock data as fallback
+  const storyData = MOCK_STORY; // For now using mock data, but in a real app you would fetch based on storyUserId
   
   const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
