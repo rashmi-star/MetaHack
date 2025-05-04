@@ -60,10 +60,12 @@ const AppNavigator = () => {
               iconName = focused ? 'home' : 'home-outline';
             } else if (route.name === 'Search') {
               iconName = focused ? 'search' : 'search-outline';
+            } else if (route.name === 'Post') {
+              iconName = focused ? 'add-circle' : 'add-circle-outline';
+            } else if (route.name === 'Activity') {
+              iconName = focused ? 'heart' : 'heart-outline';
             } else if (route.name === 'Profile') {
               iconName = focused ? 'person' : 'person-outline';
-            } else if (route.name === 'Test') {
-              iconName = focused ? 'code-working' : 'code-outline';
             }
 
             return <Ionicons name={iconName} size={size} color={color} />;
@@ -78,12 +80,9 @@ const AppNavigator = () => {
           options={{ headerShown: false }}
         />
         <Tab.Screen name="Search" component={SearchScreen} />
+        <Tab.Screen name="Post" component={TestApiScreen} options={{ title: 'New Post' }} />
+        <Tab.Screen name="Activity" component={SearchScreen} options={{ title: 'Activity' }} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
-        <Tab.Screen 
-          name="Test" 
-          component={TestApiScreen} 
-          options={{ title: 'API Test' }}
-        />
       </Tab.Navigator>
     </NavigationContainer>
   );

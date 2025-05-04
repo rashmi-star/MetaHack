@@ -17,6 +17,7 @@ import { MOCK_POSTS } from '../data/mockData';
 
 const HomeScreen = ({ navigation }) => {
   const [posts, setPosts] = useState([]);
+  const [hasNotifications, setHasNotifications] = useState(true); // Mock notification state
 
   useEffect(() => {
     // In a real app, you would fetch posts from an API
@@ -30,11 +31,15 @@ const HomeScreen = ({ navigation }) => {
         <View style={styles.headerButtons}>
           <TouchableOpacity 
             style={styles.headerButton}
-            onPress={() => navigation.navigate('TestApi')}
+            onPress={() => Alert.alert('Notifications', 'You have new likes and comments!')}
           >
-            <Ionicons name="code-working" size={24} color="black" />
+            <Ionicons name={hasNotifications ? "heart" : "heart-outline"} size={24} color={hasNotifications ? "#E1306C" : "black"} />
+            {hasNotifications && <View style={styles.notificationDot} />}
           </TouchableOpacity>
-          <TouchableOpacity style={styles.headerButton}>
+          <TouchableOpacity 
+            style={styles.headerButton}
+            onPress={() => Alert.alert('Messages', 'No new messages')}
+          >
             <Ionicons name="paper-plane-outline" size={24} color="black" />
           </TouchableOpacity>
         </View>
@@ -89,6 +94,16 @@ const styles = StyleSheet.create({
   },
   headerButton: {
     marginLeft: 15,
+    position: 'relative',
+  },
+  notificationDot: {
+    position: 'absolute',
+    top: -2,
+    right: -2,
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#E1306C',
   },
   featureInstructionBanner: {
     flexDirection: 'row',
